@@ -1,0 +1,21 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 60%
+        threshold: 5%
+    patch:
+      default:
+        target: 70%
+        threshold: 5%
+
+comment:
+  layout: "reach,diff,flags,tree"
+  behavior: default
+  require_changes: false
+
+ignore:
+  - "cmd/mock-service/main.go"  # Main function typically not tested
+  - "**/*_test.go"              # Test files
+  - "**/testdata/**"            # Test data
+  - "**/.gitkeep"               # Placeholder files
