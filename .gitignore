@@ -79,3 +79,6 @@ cker volumes and data
 # Test artifacts
 /testdata/output/
 /test-results/
+
+# Kiro specs (development artifacts, not for production)
+.kiro/specs/
