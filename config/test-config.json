@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "path": "/test",
+      "response": {
+        "message": "Container test successful",
+        "timestamp": "2024-01-14T15:30:00Z"
+      },
+      "code": 200
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "rules": [
+    {
+      "path": "/api/v1/users/profile",
+      "response": {
+        "user": {
+          "id": 12345,
+          "username": "johndoe",
+          "profile": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@example.com",
+            "avatar": "https://example.com/avatars/johndoe.jpg",
+            "preferences": {
+              "theme": "dark",
+              "language": "en",
+              "notifications": {
+                "email": true,
+                "push": false,
+                "sms": true
+              }
+            }
+          },
+          "roles": ["user", "premium"],
+          "metadata": {
+            "createdAt": "2023-01-15T10:30:00Z",
+            "lastLogin": "2024-01-14T15:45:30Z",
+            "loginCount": 247
+          }
+        }
+      },
+      "code": 200
+    },
+    {
+      "path": "/api/v1/orders/recent",
+      "response": {
+        "orders": [
+          {
+            "id": "ORD-2024-001",
+            "status": "shipped",
+            "items": [
+              {
+                "productId": 101,
+                "name": "Wireless Headphones",
+                "quantity": 1,
+                "price": 199.99
+              },
+              {
+                "productId": 205,
+                "name": "Phone Case",
+                "quantity": 2,
+                "price": 24.99
+              }
+            ],
+            "total": 249.97,
+            "shipping": {
+              "address": "123 Main St, Anytown, ST 12345",
+              "method": "standard",
+              "trackingNumber": "TRK123456789"
+            },
+            "createdAt": "2024-01-10T14:20:00Z"
+          }
+        ],
+        "pagination": {
+          "page": 1,
+          "limit": 10,
+          "total": 1,
+          "hasMore": false
+        }
+      },
+      "code": 200
+    },
+    {
+      "path": "/api/v1/analytics/dashboard",
+      "response": {
+        "metrics": {
+          "totalUsers": 15420,
+          "activeUsers": 8934,
+          "revenue": {
+            "today": 12450.75,
+            "thisMonth": 345678.90,
+            "thisYear": 2456789.12
+          },
+          "orders": {
+            "pending": 23,
+            "processing": 45,
+            "shipped": 156,
+            "delivered": 1234
+          }
+        },
+        "charts": {
+          "userGrowth": [
+            {"date": "2024-01-01", "users": 14500},
+            {"date": "2024-01-02", "users": 14650},
+            {"date": "2024-01-03", "users": 14800},
+            {"date": "2024-01-04", "users": 15000},
+            {"date": "2024-01-05", "users": 15420}
+          ],
+          "revenueByCategory": [
+            {"category": "Electronics", "revenue": 125000},
+            {"category": "Clothing", "revenue": 89000},
+            {"category": "Books", "revenue": 34000},
+            {"category": "Home & Garden", "revenue": 67000}
+          ]
+        }
+      },
+      "code": 200
+    }
+  ]
+}

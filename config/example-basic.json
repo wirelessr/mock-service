@@ -1,0 +1,25 @@
+{
+  "rules": [
+    {
+      "path": "/api/users",
+      "response": {
+        "users": [
+          {"id": 1, "name": "Alice Johnson", "email": "alice@example.com"},
+          {"id": 2, "name": "Bob Smith", "email": "bob@example.com"}
+        ],
+        "total": 2
+      },
+      "code": 200
+    },
+    {
+      "path": "/api/products",
+      "response": {
+        "products": [
+          {"id": 101, "name": "Laptop", "price": 999.99},
+          {"id": 102, "name": "Mouse", "price": 29.99}
+        ]
+      },
+      "code": 200
+    }
+  ]
+}
