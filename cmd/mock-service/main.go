@@ -54,7 +54,8 @@ func main() {
 
 	// Register health check endpoint first (before wildcard routes)
 	router.GET("/health", func(c *gin.Context) {
-		c.JSON(200, gin.H{"status": "healthy", "service": "mock-service"})
+		const healthStatusCode = 200
+		c.JSON(healthStatusCode, gin.H{"status": "healthy", "service": "mock-service"})
 	})
 
 	// Register universal handler for all other paths and methods

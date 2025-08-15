@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
@@ -127,7 +128,7 @@ func TestHandleRequestWithMatchingRule(t *testing.T) {
 	router.Any("/*path", handler.HandleRequest)
 
 	// Create test request
-	req, _ := http.NewRequest("GET", "/api/users?id=123&name=test", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), "GET", "/api/users?id=123&name=test", http.NoBody)
 	w := httptest.NewRecorder()
 
 	// Execute request
@@ -206,7 +207,7 @@ func TestHandleRequestWithNoMatchingRule(t *testing.T) {
 	router.Any("/*path", handler.HandleRequest)
 
 	// Create test request
-	req, _ := http.NewRequest("POST", "/api/unknown", nil)
+	req, _ := http.NewRequestWithContext(context.Background(), "POST", "/api/unknown", http.NoBody)
 	w := httptest.NewRecorder()
 
 	// Execute request
@@ -267,7 +268,12 @@ func TestHandleRequestWithQueryParameters(t *testing.T) {
 	router.Any("/*path", handler.HandleRequest)
 
 	// Create test request with multiple query parameters
-	req, _ := http.NewRequest("GET", "/api/test?param1=value1&param2=value2&param3=value3", nil)
+	req, _ := http.NewRequestWithContext(
+		context.Background(),
+		"GET",
+		"/api/test?param1=value1&param2=value2&param3=value3",
+		http.NoBody,
+	)
 	w := httptest.NewRecorder()
 
 	// Execute request
@@ -309,7 +315,12 @@ func TestHandleRequestWithMultipleQueryValues(t *testing.T) {
 	router.Any("/*path", handler.HandleRequest)
 
 	// Create test request with multiple values for same parameter
-	req, _ := http.NewRequest("GET", "/api/test?tags=tag1&tags=tag2&tags=tag3", nil)
+	req, _ := http.NewRequestWithContext(
+		context.Background(),
+		"GET",
+		"/api/test?tags=tag1&tags=tag2&tags=tag3",
+		http.NoBody,
+	)
 	w := httptest.NewRecorder()
 
 	// Execute request

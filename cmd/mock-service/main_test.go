@@ -1,13 +1,14 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
+	"testing"
+
 	"mock-service/internal/config"
 	"mock-service/internal/logger"
 	"mock-service/internal/matcher"
 	"mock-service/internal/response"
-	"os"
-	"path/filepath"
-	"testing"
 )
 
 // TestMainProgramIntegration tests the complete integration of the main program
