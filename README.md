@@ -1,5 +1,7 @@
 # Mock Service
 
+[![CI](https://github.com/wirelessr/mock-service/actions/workflows/ci.yml/badge.svg)](https://github.com/wirelessr/mock-service/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/wirelessr/mock-service/graph/badge.svg?token=6OKg9XPJCc)](https://codecov.io/gh/wirelessr/mock-service)
+
 A lightweight HTTP mock service built with Go and Gin framework. This service allows you to quickly set up mock HTTP endpoints by defining rules in a JSON configuration file.
 
 ## Features
