@@ -9,8 +9,14 @@ services:
       - "8080:8080"
     volumes:
       - ./config:/app/config:ro
-    environment:
-      - CONFIG_FILE=/app/config/config.json
+    command:
+      [
+        "./mock-service",
+        "-config",
+        "/app/config/test-config.json",
+        "-port",
+        "8080",
+      ]
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
