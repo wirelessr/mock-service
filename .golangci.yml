@@ -52,9 +52,7 @@ linters-settings:
       - wrapperFunc
       - emptyStringTest  # Allow len(s) == 0 pattern
   
-  gosec:
-    excludes:
-      - G306  # Allow 0644 permissions for test files
+
   
   depguard:
     rules:
@@ -80,7 +78,6 @@ linters:
     - goimports
     - mnd  # Replace deprecated gomnd
     - goprintffuncname
-    - gosec
     - gosimple
     - govet
     - ineffassign
@@ -112,7 +109,7 @@ issues:
         - goconst
         - dupl
         - errcheck  # Allow unchecked errors in tests
-        - gosec     # Allow test file permissions
+
     
     # Exclude lll issues for long lines with go:generate
     - linters:
