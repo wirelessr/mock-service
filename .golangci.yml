@@ -13,32 +13,32 @@ output:
 linters-settings:
   errcheck:
     check-type-assertions: true
-    check-blank: false  # Allow blank assignments in tests
-  
+    check-blank: false # Allow blank assignments in tests
+
   govet:
     enable-all: true
     disable:
-      - fieldalignment  # Disable field alignment checks for simplicity
-  
+      - fieldalignment # Disable field alignment checks for simplicity
+
   gocyclo:
     min-complexity: 15
-  
+
   dupl:
     threshold: 100
-  
+
   goconst:
     min-len: 3
     min-occurrences: 3
-  
+
   misspell:
     locale: US
-  
+
   lll:
-    line-length: 130  # Slightly longer for better readability
-  
+    line-length: 130 # Slightly longer for better readability
+
   goimports:
     local-prefixes: mock-service
-  
+
   gocritic:
     enabled-tags:
       - diagnostic
@@ -50,10 +50,8 @@ linters-settings:
       - octalLiteral
       - whyNoLint
       - wrapperFunc
-      - emptyStringTest  # Allow len(s) == 0 pattern
-  
+      - emptyStringTest # Allow len(s) == 0 pattern
 
-  
   depguard:
     rules:
       main:
@@ -67,7 +65,7 @@ linters-settings:
 linters:
   enable:
     - bodyclose
-    - copyloopvar  # Replace deprecated exportloopref
+    - copyloopvar # Replace deprecated exportloopref
     - dogsled
     - dupl
     - errcheck
@@ -76,7 +74,7 @@ linters:
     - gocritic
     - gofmt
     - goimports
-    - mnd  # Replace deprecated gomnd
+    - mnd # Replace deprecated gomnd
     - goprintffuncname
     - gosimple
     - govet
@@ -94,11 +92,11 @@ linters:
     - unparam
     - unused
     - whitespace
-  
+
   disable:
     - gochecknoinits
     - gochecknoglobals
-    - depguard  # Disable for now to allow internal imports
+    - depguard # Disable for now to allow internal imports
 
 issues:
   exclude-rules:
@@ -108,21 +106,20 @@ issues:
         - mnd
         - goconst
         - dupl
-        - errcheck  # Allow unchecked errors in tests
+        - errcheck # Allow unchecked errors in tests
 
-    
     # Exclude lll issues for long lines with go:generate
     - linters:
         - lll
       source: "^//go:generate "
-    
+
     # Allow long lines in error messages
     - linters:
         - lll
       source: "fmt.Fprintf.*Failed to marshal log entry"
-  
+
   # Maximum issues count per one linter. Set to 0 to disable
   max-issues-per-linter: 0
-  
+
   # Maximum count of issues with the same text. Set to 0 to disable
   max-same-issues: 0
